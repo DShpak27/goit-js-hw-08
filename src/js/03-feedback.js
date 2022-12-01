@@ -25,7 +25,7 @@ function onFeedbackFormInput(evt) {
   localStorage.setItem(FORM_DATA_STORAGE_KEY, JSON.stringify(formData));
 }
 
-feedbackFormRef.addEventListener('input', onFeedbackFormInput);
+feedbackFormRef.addEventListener('input', throttle(onFeedbackFormInput, 500));
 
 feedbackFormRef.addEventListener('submit', evt => {
   evt.preventDefault();
